@@ -2,36 +2,54 @@
   perspective: 1200px;
 }
 
+/* 🔥 MAIN CARD */
 .card {
   position: relative;
   width: 100%;
-  border-radius: 24px;
-  overflow: visible;
-  cursor: pointer;
-  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transform-style: preserve-3d;
   height: 460px;
+  border-radius: 24px;
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  transition: transform 0.7s ease;
+  will-change: transform;
+
+  transform: translateZ(0); /* 🔥 mobile fix */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.card:hover {
-  transform: translateY(-8px) scale(1.01);
+/* Hover only desktop */
+@media (hover: hover) {
+  .card:not(.cardFlipped):hover {
+    transform: translateY(-8px) scale(1.02);
+  }
 }
 
+/* 🔥 FLIP */
 .cardFlipped {
-  transform: rotateY(180deg) translateY(-8px) scale(1.01);
+  transform: rotateY(180deg) translateZ(0);
 }
 
-/* Front Face */
-.cardFront, .cardBack {
+/* Faces */
+.cardFront,
+.cardBack {
   position: absolute;
   inset: 0;
+
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+
+  transform-style: preserve-3d;
+
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(0,0,0,0.12);
 }
 
+/* Back */
 .cardBack {
   transform: rotateY(180deg);
   background: linear-gradient(135deg, #2d6a4f, #52b788);
@@ -42,142 +60,120 @@
   color: #fff;
 }
 
+/* Image */
 .imgWrap {
   position: relative;
   height: 220px;
-  overflow: hidden;
 }
 
 .img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
-.card:hover .img {
-  transform: scale(1.06);
+@media (hover: hover) {
+  .card:hover .img {
+    transform: scale(1.06);
+  }
 }
 
+/* Gradient */
 .imgGradient {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   height: 80px;
-  background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.25), transparent);
 }
 
+/* Number */
 .number {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 12px;
+  right: 12px;
   background: rgba(255,255,255,0.9);
-  color: #2d4a3e;
-  font-weight: 800;
-  font-size: 0.75rem;
   padding: 4px 10px;
   border-radius: 50px;
-  letter-spacing: 0.5px;
+  font-weight: 700;
 }
 
+/* Body */
 .body {
-  padding: 20px 20px 16px;
-  flex: 1;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-height: 240px;
 }
 
 .header {
   display: flex;
+  gap: 10px;
   align-items: center;
-  gap: 12px;
 }
 
 .emojiIcon {
-  font-size: 2.2rem;
-  line-height: 1;
+  font-size: 2rem;
 }
 
 .name {
   font-size: 1.3rem;
   font-weight: 800;
-  color: #1a2e22;
-  line-height: 1.1;
 }
 
 .subtitle {
-  font-size: 0.78rem;
-  color: #3a5a4a;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 2px;
+  font-size: 0.75rem;
+  opacity: 0.7;
 }
 
+/* Description */
 .desc {
   font-size: 0.85rem;
-  color: #2a3e30;
-  line-height: 1.65;
-  flex: 1;
+  line-height: 1.6;
 }
 
+/* Flip hint */
 .flipHint {
-  text-align: right;
-  font-size: 0.75rem;
-  color: #3a6a4a;
-  font-weight: 600;
-  opacity: 0.7;
   margin-top: auto;
+  font-size: 0.75rem;
+  text-align: right;
+  opacity: 0.7;
 }
 
-/* Back Face */
+/* BACK SIDE */
 .backHeader {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.backEmoji {
-  font-size: 2.4rem;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .backName {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .gujaratiSection {
   background: rgba(255,255,255,0.12);
-  border-radius: 16px;
-  padding: 20px;
-  border: 1px solid rgba(255,255,255,0.2);
-  flex: 1;
+  padding: 16px;
+  border-radius: 12px;
 }
 
 .gujaratiLabel {
   font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 10px;
-  font-weight: 700;
+  opacity: 0.7;
+  margin-bottom: 6px;
 }
 
 .gujaratiText {
   font-size: 0.95rem;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.92);
+  line-height: 1.7;
 }
 
 .flipHintBack {
   margin-top: 20px;
   text-align: center;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.6);
-  font-weight: 500;
+  font-size: 0.8rem;
+  opacity: 0.7;
 }
