@@ -10,7 +10,7 @@ import grapes from "./image/Grapes.jpg";
 import cucumber from "./image/Cucumber.jpg";
 import chiku from "./image/Chiku.webp";
 import carrot from "./image/Carrot.jpg";
-import cantaloupe from "./image/cantaloupe.webp";
+import cantaloupe from "./image/Cantaloupe.webp";
 import cabbage from "./image/cabbage.webp";
 import broccoli from "./image/Broccoli.jpeg";
 import brinjal from "./image/Brinjal.webp";
