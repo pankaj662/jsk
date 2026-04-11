@@ -57,7 +57,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 32px;
-  color: #fff;
+  color: black;
 }
 
 /* Image */
@@ -155,7 +155,7 @@
 }
 
 .gujaratiSection {
-  background: rgba(255,255,255,0.12);
+  background: rgba(161, 115, 115, 0.12);
   padding: 16px;
   border-radius: 12px;
 }

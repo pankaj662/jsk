@@ -63,13 +63,13 @@ export default function VegetableCard({ veg, index }) {
         </div>
 
         {/* Back */}
-        <div className={styles.cardBack}>
+        <div className={styles.cardBack} style={{ background: veg.color }}>
           <div className={styles.backHeader}>
             <Logo size={40} />
             <span className={styles.backName}>{veg.name}</span>
           </div>
 
-          <div className={styles.gujaratiSection}>
+          <div className={styles.gujaratiSection} >
             <div className={styles.gujaratiLabel}>ગુજરાતી</div>
             <p className={styles.gujaratiText}>{veg.gujarati}</p>
           </div>
