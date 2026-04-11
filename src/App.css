@@ -1,0 +1,38 @@
+/* Global resets & smooth transitions */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Scroll snap hints */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Selection color */
+::selection {
+  background: #52b78840;
+  color: #1a2e22;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f4f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #52b788;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d6a4f;
+}

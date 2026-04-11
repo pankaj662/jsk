@@ -1,0 +1,159 @@
+.section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #1a4731 0%, #2d6a4f 40%, #52b788 80%, #63d1cd 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.blob1 {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.blob2 {
+  position: absolute;
+  bottom: -150px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: rgba(99, 209, 205, 0.12);
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.floatEmoji {
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.2;
+  pointer-events: none;
+  user-select: none;
+}
+
+.inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(8px);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #e0f7f5;
+}
+
+.heading {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.accent {
+  color: #a7f3d0;
+}
+
+.desc {
+  color: rgba(255,255,255,0.78);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 550px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.btnPrimary {
+  background: #fff;
+  color: #2d6a4f;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+
+.btnPrimary:hover {
+  background: #e8f9f0;
+}
+
+.btnOutline {
+  border: 2px solid rgba(255,255,255,0.5);
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s;
+}
+
+.btnOutline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.8);
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  width: 100%;
+  justify-content: center;
+}
+
+.logoIcon {
+  font-size: 2rem;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.logoText strong {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.logoText span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
