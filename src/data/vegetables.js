@@ -162,7 +162,7 @@ export const vegetablesData = [
   {
     id: 12,
     name: "Grapes",   
-    title: "Vine Berries",
+    title: "Vine Berries",  
     category: "Fruity",
     description:
       "Grapes are small, round or oval berries that grow in clusters on woody vines. While they are usually eaten fresh, they are also used in cooking to enhance flavors in savory dishes and spice blends.",
