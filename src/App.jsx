@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Video from './components/VideoFrame'
 import About from './components/About';
+import VideoShowcase from './components/VideoShowcase';
 import Varieties from './components/Varieties';
 import Benefits from './components/Benefits';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import ContactPage from './components/ContactPage';
 import './App.css';
 
 export default function App() {
+  const [contactOpen, setContactOpen] = useState(false);
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -34,17 +39,22 @@ export default function App() {
         }}
       />
 
-      <Navbar />
+      <Navbar onContactOpen={() => setContactOpen(true)} />
 
       <main>
         <Hero />
+        <Video/>
         <About />
+        <VideoShowcase />
         <Varieties />
         <Benefits />
         <CTA />
       </main>
 
       <Footer />
+
+      {/* Contact Page Overlay */}
+      <ContactPage isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   );
 }

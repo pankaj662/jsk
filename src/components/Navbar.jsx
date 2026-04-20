@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onContactOpen }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -39,7 +39,11 @@ export default function Navbar() {
         <ul className={styles.links}>
           {navLinks.map(link => (
             <li key={link.label}>
-              <a href={link.href} className={styles.link}>{link.label}</a>
+              {link.label === 'Contact' ? (
+                <a href="#" className={styles.link} onClick={(e) => { e.preventDefault(); onContactOpen && onContactOpen(); }}>{link.label}</a>
+              ) : (
+                <a href={link.href} className={styles.link}>{link.label}</a>
+              )}
             </li>
           ))}
         </ul>
@@ -72,9 +76,14 @@ export default function Navbar() {
             {navLinks.map(link => (
               <a
                 key={link.label}
-                href={link.href}
+                href={link.label === 'Contact' ? '#' : link.href}
                 className={styles.mobileLink}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  setMenuOpen(false);
+                  if (link.label === 'Contact' && onContactOpen) {
+                    onContactOpen();
+                  }
+                }}
               >
                 {link.label}
               </a>

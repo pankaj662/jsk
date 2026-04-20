@@ -1,0 +1,92 @@
+.videoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+  gap: 2rem;
+}
+
+.organicFrame {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(104, 159, 129, 0.3);
+  border: 12px solid var(--primary-green);
+  animation: organicShape 10s ease-in-out infinite alternate;
+  background-color: #000;
+  z-index: 2;
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes organicShape {
+  0% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  50% {
+    border-radius: 60% 40% 30% 70% / 50% 50% 40% 60%;
+  }
+  100% {
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+}
+
+.leafDecoration {
+  position: absolute;
+  color: var(--primary-green);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.leaf1 {
+  top: 10%;
+  left: 5%;
+  font-size: 8rem;
+  transform: rotate(-30deg);
+}
+
+.leaf2 {
+  bottom: 10%;
+  right: 5%;
+  font-size: 10rem;
+  transform: rotate(45deg);
+}
+
+.headingWrapper {
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+
+.heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+  .organicFrame {
+    border-width: 6px;
+  }
+}
+
+.heading span {
+  color: var(--primary-green);
+}
