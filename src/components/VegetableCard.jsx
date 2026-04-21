@@ -27,7 +27,7 @@ export default function VegetableCard({ veg, index }) {
         onKeyDown={(e) => e.key === 'Enter' && setFlipped(prev => !prev)}
       >
         {/* Front */}
-        <div className={styles.cardFront}>
+        <div className={styles.cardFront} style={{ background: veg.color }}>
           <div className={styles.imgWrap}>
             <img
               src={imgSrc}
@@ -45,7 +45,7 @@ export default function VegetableCard({ veg, index }) {
             </span>
           </div>
 
-          <div className={styles.body} style={{ background: veg.color }}>
+          <div className={styles.body}>
             <div className={styles.header}>
               <span className={styles.emojiIcon}>{veg.icon}</span>
               <div>

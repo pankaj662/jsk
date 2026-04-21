@@ -1,20 +1,26 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, MessageCircle } from 'lucide-react';
+import {
+  Phone, Mail, MapPin, Clock,
+  Facebook, Instagram, Twitter, MessageCircle
+} from 'lucide-react';
 import styles from './ContactPage.module.css';
 
 const contactInfo = [
   {
     icon: <Phone size={24} />,
     label: 'Phone',
-    value: '+91 7067465249',
-    link: 'tel:+917067465249',
+    value: ['+91 7067465249', '+91 8460820040'],
+    link: ['tel:+917067465249', 'tel:+918460820040'],
   },
   {
     icon: <MessageCircle size={24} />,
     label: 'WhatsApp',
-    value: '+91 70674 65249',
-    link: 'https://wa.me/7067465249',
+    value: ['+91 7067465249', '+91 8460820040'],
+    link: [
+      'https://wa.me/917067465249',
+      'https://wa.me/918460820040'
+    ],
   },
   {
     icon: <Mail size={24} />,
@@ -25,7 +31,7 @@ const contactInfo = [
   {
     icon: <MapPin size={24} />,
     label: 'Address',
-    value: 'JSK Farm, Green Valley Road, Rajasthan, India',
+    value: 'JSK Farm, Pethapur, Gandhinagar, Gujarat 382610, India',
     link: null,
   },
   {
@@ -62,9 +68,9 @@ export default function ContactPage({ isOpen, onClose }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
           onClick={onClose}
         >
+
           {/* Close Button */}
           <motion.button
             className={styles.closeBtn}
@@ -72,7 +78,6 @@ export default function ContactPage({ isOpen, onClose }) {
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             exit={{ scale: 0, rotate: 180 }}
-            transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
           >
             ✕
           </motion.button>
@@ -83,22 +88,17 @@ export default function ContactPage({ isOpen, onClose }) {
             initial={{ scale: 0.85, y: 60, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.85, y: 60, opacity: 0 }}
-            transition={{ duration: 0.5, type: 'spring', damping: 20 }}
           >
+
             {/* Header */}
-            <motion.div
-              className={styles.header}
-              initial={{ y: -30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
+            <div className={styles.header}>
               <h1 className={styles.title}>
                 Contact <span>Us</span>
               </h1>
               <p className={styles.subtitle}>
-                To connect with us, please use any of the contact details provided below. We are always at your service!
+                To connect with us, please use any of the contact details below.
               </p>
-            </motion.div>
+            </div>
 
             {/* Contact Cards */}
             <motion.div
@@ -107,56 +107,68 @@ export default function ContactPage({ isOpen, onClose }) {
               initial="hidden"
               animate="show"
             >
-              {contactInfo.map((item, i) => (
+              {contactInfo.map((item) => (
                 <motion.div
                   className={styles.card}
                   key={item.label}
                   variants={itemVariants}
                   whileHover={{ y: -8, scale: 1.03 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
                 >
                   <div className={styles.cardIcon}>{item.icon}</div>
                   <div className={styles.cardLabel}>{item.label}</div>
-                  {item.link ? (
-                    <a href={item.link} className={styles.cardValue} target="_blank" rel="noopener noreferrer">
+
+                  {/* ✅ Fixed Render */}
+                  {Array.isArray(item.value) ? (
+                    <div className={styles.multiValue}>
+                      {item.value.map((val, idx) => (
+                        <a
+                          key={idx}
+                          href={item.link[idx]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.cardValue}
+                        >
+                          {val}
+                        </a>
+                      ))}
+                    </div>
+                  ) : item.link ? (
+                    <a
+                      href={item.link}
+                      className={styles.cardValue}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {item.value}
                     </a>
                   ) : (
-                    <div className={styles.cardValue} style={{ whiteSpace: 'pre-line' }}>{item.value}</div>
+                    <div className={styles.cardValueText}>
+                      {item.value}
+                    </div>
                   )}
+
                 </motion.div>
               ))}
             </motion.div>
 
-            {/* Map Embed */}
-            <motion.div
-              className={styles.mapWrapper}
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
-            >
+            {/* Map */}
+            <div className={styles.mapWrapper}>
               <h3 className={styles.mapTitle}>📍 Our Location</h3>
               <div className={styles.mapFrame}>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3653!2d72.770988!3d23.303996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDE4JzE0LjQiTiA3MsKwNDYnMTUuNiJF!5e0!3m2!1sen!2sin!4v1713700000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3665.228588825227!2d72.76841311502446!3d23.30399600984852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDE4JzE0LjQiTiA3MsKwNDYnMTUuNCJF!5e0!3m2!1sen!2sin!4v1713692226000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen=""
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
                   title="JSK Farm Location"
+                  allowFullScreen
                 />
               </div>
-            </motion.div>
+            </div>
 
             {/* Social Links */}
-            <motion.div
-              className={styles.socialSection}
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.8 }}
-            >
+            <div className={styles.socialSection}>
               <h3 className={styles.socialTitle}>Follow Us</h3>
               <div className={styles.socialRow}>
                 {socialLinks.map((s, i) => (
@@ -168,16 +180,14 @@ export default function ContactPage({ isOpen, onClose }) {
                     className={styles.socialBtn}
                     whileHover={{ y: -5, scale: 1.15 }}
                     whileTap={{ scale: 0.9 }}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.9 + i * 0.1, type: 'spring' }}
                   >
                     {s.icon}
                     <span>{s.label}</span>
                   </motion.a>
                 ))}
               </div>
-            </motion.div>
+            </div>
+
           </motion.div>
         </motion.div>
       )}
