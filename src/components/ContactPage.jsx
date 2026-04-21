@@ -19,8 +19,8 @@ const contactInfo = [
   {
     icon: <Mail size={24} />,
     label: 'Email',
-    value: 'contact@jskfarm.com',
-    link: 'mailto:contact@jskfarm.com',
+    value: 'industryjsk@gmail.com',
+    link: 'mailto:industryjsk@gmail.com',
   },
   {
     icon: <MapPin size={24} />,
@@ -38,9 +38,9 @@ const contactInfo = [
 
 const socialLinks = [
   { icon: <Facebook size={22} />, label: 'Facebook', href: 'https://facebook.com' },
-  { icon: <Instagram size={22} />, label: 'Instagram', href: 'https://instagram.com' },
+  { icon: <Instagram size={22} />, label: 'Instagram', href: 'https://www.instagram.com/industryjsk?igsh=MWxpNG85ZXZvaXRuOQ==' },
   { icon: <Twitter size={22} />, label: 'Twitter', href: 'https://twitter.com' },
-  { icon: <MessageCircle size={22} />, label: 'WhatsApp', href: 'https://wa.me/919876543210' },
+  { icon: <MessageCircle size={22} />, label: 'WhatsApp', href: 'https://wa.me/917067465249' },
 ];
 
 const containerVariants = {
@@ -96,7 +96,7 @@ export default function ContactPage({ isOpen, onClose }) {
                 Contact <span>Us</span>
               </h1>
               <p className={styles.subtitle}>
-                Hum se judne ke liye neeche di gayi kisi bhi information ka use karein. Hum aapki seva mein hamesha taiyaar hain!
+                To connect with us, please use any of the contact details provided below. We are always at your service!
               </p>
             </motion.div>
 
@@ -135,7 +135,7 @@ export default function ContactPage({ isOpen, onClose }) {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.7 }}
             >
-              <h3 className={styles.mapTitle}>📍 Hamari Location</h3>
+              <h3 className={styles.mapTitle}>📍 Our Location</h3>
               <div className={styles.mapFrame}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.5476!2d75.78!3d26.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDQ5JzEyLjAiTiA3NcKwNDYnNDguMCJF!5e0!3m2!1sen!2sin!4v1600000000000"

@@ -37,7 +37,7 @@ export default function Footer() {
 
             <Instagram 
               className={styles.icon}
-              onClick={() => window.open('https://instagram.com')}
+              onClick={() => window.open(' https://www.instagram.com/industryjsk?igsh=MWxpNG85ZXZvaXRuOQ==')}
             />
 
             <Facebook 
