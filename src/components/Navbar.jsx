@@ -6,12 +6,14 @@ import styles from './Navbar.module.css';
 const navLinks = [
   { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
+  { label: 'Mission', href: '#mission' },
+  { label: 'Eco', href: '#sustainability' },
   { label: 'Varieties', href: '#varieties' },
   { label: 'Benefits', href: '#benefits' },
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar({ onContactOpen }) {
+export default function Navbar({ onContactOpen, onMissionOpen }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -20,6 +22,16 @@ export default function Navbar({ onContactOpen }) {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const handleLinkClick = (e, label, href) => {
+    if (label === 'Contact') {
+      e.preventDefault();
+      onContactOpen && onContactOpen();
+    } else if (label === 'Mission') {
+      e.preventDefault();
+      onMissionOpen && onMissionOpen();
+    }
+  };
 
   return (
     <motion.nav
@@ -39,11 +51,13 @@ export default function Navbar({ onContactOpen }) {
         <ul className={styles.links}>
           {navLinks.map(link => (
             <li key={link.label}>
-              {link.label === 'Contact' ? (
-                <a href="#" className={styles.link} onClick={(e) => { e.preventDefault(); onContactOpen && onContactOpen(); }}>{link.label}</a>
-              ) : (
-                <a href={link.href} className={styles.link}>{link.label}</a>
-              )}
+              <a 
+                href={link.href} 
+                className={styles.link} 
+                onClick={(e) => handleLinkClick(e, link.label, link.href)}
+              >
+                {link.label}
+              </a>
             </li>
           ))}
         </ul>
@@ -76,13 +90,11 @@ export default function Navbar({ onContactOpen }) {
             {navLinks.map(link => (
               <a
                 key={link.label}
-                href={link.label === 'Contact' ? '#' : link.href}
+                href={link.href}
                 className={styles.mobileLink}
-                onClick={() => {
+                onClick={(e) => {
                   setMenuOpen(false);
-                  if (link.label === 'Contact' && onContactOpen) {
-                    onContactOpen();
-                  }
+                  handleLinkClick(e, link.label, link.href);
                 }}
               >
                 {link.label}

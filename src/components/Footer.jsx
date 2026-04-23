@@ -7,14 +7,43 @@ import Facebook from './assets/facebook.svg?react';
 import YouTube from './assets/youtube.svg?react';
 import Telegram from './assets/telegram.svg?react';
 
+/* Mapping for Company links to their section IDs */
+const companyLinkMap = {
+  'About Us': '#about',
+  'Our Mission': '#mission',
+  'Sustainability': '#sustainability',
+  'Contact': '#contact', // special — triggers modal
+};
+
 const footerLinks = {
   'Varieties': ['Potato', 'Onion', 'Cucumber', 'Broccoli', 'Cabbage', 'Green Chillies'],
   'Company': ['About Us', 'Our Mission', 'Sustainability', 'Contact'],
   'Resources': ['Health Benefits', 'Recipes', 'Gujarati Guide', 'Blog'],
 };
 
-export default function Footer() {
+export default function Footer({ onContactOpen, onResourceOpen }) {
   const year = new Date().getFullYear();
+
+  const getHref = (section, link) => {
+    if (section === 'Company') return companyLinkMap[link] || '#';
+    if (section === 'Varieties') return '#varieties';
+    return '#';
+  };
+
+  const handleClick = (section, link, e) => {
+    if (section === 'Company' && link === 'Contact') {
+      e.preventDefault();
+      if (onContactOpen) onContactOpen();
+    }
+    if (section === 'Company' && link === 'Our Mission') {
+      e.preventDefault();
+      if (onMissionOpen) onMissionOpen();
+    }
+    if (section === 'Resources') {
+      e.preventDefault();
+      if (onResourceOpen) onResourceOpen(link);
+    }
+  };
 
   return (
     <footer className={styles.footer}>
@@ -65,7 +94,13 @@ export default function Footer() {
             <ul className={styles.linkList}>
               {links.map(link => (
                 <li key={link}>
-                  <a href="#varieties" className={styles.footerLink}>{link}</a>
+                  <a
+                    href={getHref(section, link)}
+                    className={styles.footerLink}
+                    onClick={(e) => handleClick(section, link, e)}
+                  >
+                    {link}
+                  </a>
                 </li>
               ))}
             </ul>
