@@ -21,7 +21,7 @@ const footerLinks = {
   'Resources': ['Health Benefits', 'Recipes', 'Gujarati Guide', 'Blog'],
 };
 
-export default function Footer({ onContactOpen, onResourceOpen }) {
+export default function Footer({ onContactOpen, onMissionOpen, onResourceOpen }) {
   const year = new Date().getFullYear();
 
   const getHref = (section, link) => {
