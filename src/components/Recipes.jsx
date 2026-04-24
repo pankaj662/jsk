@@ -7,7 +7,7 @@ const recipes = [
     name: 'Roasted Root Medley', 
     time: '45 mins', 
     difficulty: 'Easy', 
-    image: '/src/components/assets/recipes/roasted-root-vegetables.jpg',
+    image: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&q=80&w=800',
     ingredients: ['Potato', 'Carrot', 'Onion', 'Garlic', 'Rosemary'],
     instructions: 'Chop vegetables, toss with olive oil and rosemary, roast at 200°C until golden.'
   },
@@ -15,7 +15,7 @@ const recipes = [
     name: 'Farm-Style Green Salad', 
     time: '15 mins', 
     difficulty: 'Quick', 
-    image: '/src/components/assets/recipes/Salad.avif',
+    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800',
     ingredients: ['Cucumber', 'Lettuce', 'Green Chillies', 'Lemon', 'Coriander'],
     instructions: 'Slice cucumber and lettuce, add chopped chillies, dress with lemon juice and salt.'
   },
@@ -23,7 +23,7 @@ const recipes = [
     name: 'Spiced Vegetable Curry', 
     time: '60 mins', 
     difficulty: 'Medium', 
-    image: '/src/components/assets/recipes/Spiced Vegetable Curry.jpg',
+    image: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&q=80&w=800',
     ingredients: ['Cabbage', 'Broccoli', 'Onion', 'Tomato', 'Indian Spices'],
     instructions: 'Saute onions and tomatoes, add spices, stir in cabbage and broccoli, simmer until tender.'
   }
